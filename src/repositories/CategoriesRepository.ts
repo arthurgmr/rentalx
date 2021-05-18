@@ -1,14 +1,10 @@
 import { Category } from "../model/Category";
+import {
+  ICategoriesRepository,
+  ICreateCategoryDTO,
+} from "./ICategoriesRepository";
 
-// DTO = create object that is responsible tranfer data between class;
-// is usually all time to get data in rote and tranfer to repository;
-
-interface ICreateCategoryDTO {
-  name: string;
-  description: string;
-}
-
-class CategoriesRepository {
+class CategoriesRepository implements ICategoriesRepository {
   // categories is attribute this class;
   // whith this, is necessary just defination the access;
   // this case, only the repository that have access;
@@ -30,6 +26,15 @@ class CategoriesRepository {
     });
 
     this.categories.push(category);
+  }
+
+  list(): Category[] {
+    return this.categories;
+  }
+
+  findByName(name: string): Category {
+    const category = this.categories.find((category) => category.name === name);
+    return category;
   }
 }
 
