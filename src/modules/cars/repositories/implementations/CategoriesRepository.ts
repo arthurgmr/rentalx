@@ -1,8 +1,8 @@
-import { Category } from "../model/Category";
+import { Category } from "../../model/Category";
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
-} from "./ICategoriesRepository";
+} from "../ICategoriesRepository";
 
 class CategoriesRepository implements ICategoriesRepository {
   // categories is attribute this class;
@@ -10,8 +10,20 @@ class CategoriesRepository implements ICategoriesRepository {
   // this case, only the repository that have access;
   private categories: Category[];
 
-  constructor() {
+  // Singleton Partner;
+  private static INSTANCE: CategoriesRepository;
+
+  // put the constructor how private;
+  private constructor() {
     this.categories = [];
+  }
+  // this method is reponsible to create and check the reposotory;
+  // instance class;
+  public static getInstance(): CategoriesRepository {
+    if (!CategoriesRepository.INSTANCE) {
+      CategoriesRepository.INSTANCE = new CategoriesRepository();
+    }
+    return CategoriesRepository.INSTANCE;
   }
 
   // to defination type of return, just includ ":void(for exemplo)";
