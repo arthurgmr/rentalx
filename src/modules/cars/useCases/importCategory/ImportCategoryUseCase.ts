@@ -9,7 +9,7 @@ interface IImportCategory {
 }
 
 class ImportCategoryUseCase {
-  constructor(private categoriesRepository: ICategoriesRepository) { }
+  constructor(private categoriesRepository: ICategoriesRepository) {}
 
   // function to load all categories in file;
   loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> {

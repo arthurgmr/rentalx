@@ -1,5 +1,5 @@
 // this is a contract to application LSP concept;
-import { Category } from "../model/Category";
+import { Category } from "../entities/Category";
 
 // DTO = create object that is responsible tranfer data between class;
 // is usually all time to get data in rote and tranfer to repository;
@@ -10,9 +10,9 @@ interface ICreateCategoryDTO {
 }
 
 interface ICategoriesRepository {
-  findByName(name: string): Category;
-  list(): Category[];
-  create({ name, description }: ICreateCategoryDTO): void;
+  findByName(name: string): Promise<Category>;
+  list(): Promise<Category[]>;
+  create({ name, description }: ICreateCategoryDTO): Promise<void>;
 }
 
 export { ICategoriesRepository, ICreateCategoryDTO };
