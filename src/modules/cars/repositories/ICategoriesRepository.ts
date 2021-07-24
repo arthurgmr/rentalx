@@ -1,5 +1,5 @@
 // this is a contract to application LSP concept;
-import { Category } from "../entities/Category";
+import { Category } from "../infra/typeorm/entities/Category";
 
 // DTO = create object that is responsible tranfer data between class;
 // is usually all time to get data in rote and tranfer to repository;
