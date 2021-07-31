@@ -14,11 +14,9 @@ Not possible to register category with same name;
 ## Register Cars
 **RF**
 Should be possible register a new car;
-Should be possible lis all categories;
 **RN**
-Should be possible register a new car just user admin;
+* Should be possible register a new car just user admin; (Will be create when to create controller)
 Should not be possible register a new car with a same license_plate;
-Should not be possible change a license_plate already registered;
 The car should be register with default avaliable;
 
 ## List Cars
