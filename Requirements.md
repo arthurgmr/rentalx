@@ -15,16 +15,16 @@ Not possible to register category with same name;
 **RF**
 Should be possible register a new car;
 **RN**
-* Should be possible register a new car just user admin; (Will be create when to create controller)
 Should not be possible register a new car with a same license_plate;
 The car should be register with default avaliable;
+* Should be possible register a new car just user admin; (Will be create when to create controller)
 
 ## List Cars
 **RF**
 Should be possible list all cars avaliables;
-Should be possible list all cars avaliables by category name;
 Should be possible list all cars avaliables by brand;
 Should be possible list all cars avaliables by car name;
+Should be possible list all cars avaliables by category name;
 **RN**
 Should be possible list all cars without login in system;
 
