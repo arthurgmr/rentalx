@@ -30,19 +30,17 @@ Should be possible list all cars without login in system;
 
 # Register Specifications Cars
 **RF**
-Should be possible register a new specification just user admin;
 Should be possible register a specification to one car;
-Should be possible list all specifications;
-Should be possible list all cars;
 **RN**
 Should not be possible register a specification to one car not register;
 Should not be possbile register already existis specification to the same car;
+Should be possible register a new specification just user admin;
+
 
 
 # Regiter Image Car
 **RF**
 Should be possible register a image of the car;
-Should be possible list all cars;
 **RNF**
 Use multer to upload files;
 **RN**
