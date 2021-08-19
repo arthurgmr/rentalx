@@ -21,7 +21,7 @@ class UploadCarImagesController {
       images_name,
     });
 
-    return response.status(201);
+    return response.status(201).send();
   }
 }
 
