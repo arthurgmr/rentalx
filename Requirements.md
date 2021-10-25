@@ -54,6 +54,7 @@ Should be possible register a rental;
 **RNF**
 
 **RN**
-The rental should be minimum duration to the twenty four hour;
+Should not be able to register a new rental if user not logged;
 Should not be possible register a new rental if already exists a open to the same user; 
 Should not be possible register a new rental if already exists a open to the same car; 
+The rental should be minimum duration to the twenty four hour;
