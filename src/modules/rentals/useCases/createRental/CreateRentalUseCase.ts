@@ -1,5 +1,6 @@
 import { inject, injectable } from "tsyringe";
 
+import { ICarsRespository } from "@modules/cars/repositories/ICarsRepository";
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
@@ -17,7 +18,9 @@ class CreateRentalUseCase {
     @inject("RentalsRepository")
     private rentalsRepository: IRentalsRepository,
     @inject("DayjsDateProvider")
-    private dateProvider: IDateProvider
+    private dateProvider: IDateProvider,
+    @inject("CarsRepository")
+    private carsRepository: ICarsRespository
   ) {}
 
   async execute({
@@ -43,7 +46,7 @@ class CreateRentalUseCase {
       throw new AppError("There's is a rental in progress for user!");
     }
 
-    // The rental should be minimum duration to the twenty four hour;
+    // The rental should be minimum duration to the 24 hour;
     const minimumHour = 24;
 
     const compare = this.dateProvider.compareInHours(expected_return_date);
@@ -57,6 +60,9 @@ class CreateRentalUseCase {
       car_id,
       expected_return_date,
     });
+
+    // When register a rental, the status car should be change to unavailable;
+    await this.carsRepository.updateAvailable(car_id, false);
 
     return rental;
   }
