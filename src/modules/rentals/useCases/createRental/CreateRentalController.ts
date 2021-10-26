@@ -7,6 +7,7 @@ class CreateRentalController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { id } = request.user;
     const { car_id, expected_return_date } = request.body;
+
     const createRentalUseCase = container.resolve(CreateRentalUseCase);
 
     const rental = await createRentalUseCase.execute({
@@ -15,7 +16,7 @@ class CreateRentalController {
       expected_return_date,
     });
 
-    return response.send(201).json(rental);
+    return response.status(201).json(rental);
   }
 }
 

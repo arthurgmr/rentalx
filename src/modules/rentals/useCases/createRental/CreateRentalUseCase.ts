@@ -33,6 +33,8 @@ class CreateRentalUseCase {
       car_id
     );
 
+    console.log(carUnavailable);
+
     if (carUnavailable) {
       throw new AppError("Car is unavailable");
     }
@@ -41,6 +43,8 @@ class CreateRentalUseCase {
     const rentalOpenToUse = await this.rentalsRepository.findOpenRentalByUser(
       user_id
     );
+
+    console.log(rentalOpenToUse);
 
     if (rentalOpenToUse) {
       throw new AppError("There's is a rental in progress for user!");
